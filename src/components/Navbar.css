@@ -1,153 +1,230 @@
 .navbar {
-  background-color: var(--secondary-white);
-  height: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1rem;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
-  z-index: 999;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 }
 
 .navbar-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
-  width: 100%;
+  padding: 15px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Logo styles */
 .logo {
   display: flex;
   align-items: center;
-  text-decoration: none;
-  font-size: 1.8rem;
-  font-weight: bold;
+  gap: 5px;
 }
 
 .logo-plus {
   color: var(--primary-red);
-  font-size: 2.5rem;
-  margin-right: 2px; /* Adjust as needed */
+  font-size: 1.8rem;
   font-weight: bold;
+}
+
+.logo-text-link {
+  text-decoration: none;
 }
 
 .logo-text {
   color: var(--text-dark);
-  letter-spacing: 1px; /* Slight letter spacing */
-}
-
-.logo-text-link {
-  text-decoration: none; /* Remove underline from logo link */
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .nav-menu {
   display: flex;
-  align-items: center;
   list-style: none;
-  text-align: center;
   margin: 0;
   padding: 0;
+  gap: 30px;
 }
 
 .nav-item {
-  height: 80px;
-  display: flex;
-  align-items: center; /* Vertically align items */
+  position: relative;
 }
 
 .nav-link {
   color: var(--text-dark);
   text-decoration: none;
-  padding: 0.5rem 1rem;
-  height: 100%;
+  font-weight: 500;
+  font-size: 1rem;
   display: flex;
-  align-items: center; /* Vertically align text within link */
-  transition: all 0.2s ease-out;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 0;
+  transition: color 0.3s ease;
 }
 
 .nav-link:hover {
   color: var(--primary-red);
-  border-bottom: 3px solid var(--primary-red);
 }
 
 .dropdown-arrow {
-  margin-left: 5px;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.nav-item:hover .dropdown-arrow {
+  transform: rotate(180deg);
 }
 
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 10px; /* Added gap between action buttons */
+  gap: 15px;
 }
 
-/* General style for all buttons in nav-actions */
 .nav-button {
-  padding: 10px 15px;
+  padding: 8px 20px;
   border-radius: 5px;
-  border: 1px solid var(--primary-red);
-  background-color: transparent;
-  color: var(--primary-red);
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
   font-weight: 500;
-  text-decoration: none; /* For Link component */
-  display: inline-flex; /* For Link component */
-  align-items: center; /* For Link component */
-  justify-content: center; /* For Link component */
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.nav-button:hover {
+.login-button {
+  background-color: transparent;
+  border: 1px solid var(--primary-red);
+  color: var(--primary-red);
+  text-decoration: none;
+}
+
+.login-button:hover {
   background-color: var(--primary-red);
-  color: var(--secondary-white);
+  color: white;
 }
 
-/* Specific overrides for feedback icon button if needed */
 .feedback-icon-button {
-  border: 1px solid var(--border-color);
-  color: var(--text-dark);
-  font-size: 1.5rem;
+  background-color: transparent;
+  border: none;
+  font-size: 1.2rem;
   padding: 8px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%; /* Make it circular */
 }
 
-.feedback-icon-button:hover {
-  background-color: #f0f0f0;
-  color: var(--text-dark); /* Keep text dark on hover for this one */
-}
-
-/* Specific overrides for request callback button */
 .request-callback-button {
   background-color: var(--primary-red);
-  color: var(--secondary-white);
-  border-color: var(--primary-red);
+  border: none;
+  color: white;
 }
 
 .request-callback-button:hover {
   background-color: var(--primary-hover-red);
-  border-color: var(--primary-hover-red);
-  color: var(--secondary-white);
 }
 
-/* Login button specific style (if different from default nav-button) */
-.login-button {
-  /* Inherits most from .nav-button */
-  /* Example: if it needs to be slightly different */
-  /* background-color: var(--secondary-white); */
-  /* color: var(--primary-red); */
-  /* border: 1px solid var(--primary-red); */
+/* Speciality Dropdown Styles */
+.speciality-dropdown {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  min-width: 280px;
+  z-index: 1000;
+  animation: dropdownFadeIn 0.3s ease;
 }
 
-.login-button:hover {
-  /* background-color: var(--primary-red); */
-  /* color: var(--secondary-white); */
+.speciality-dropdown::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid white;
 }
 
-/* Responsive adjustments could be added here with media queries */ 
+.speciality-dropdown-content {
+  padding: 10px 0;
+}
+
+.speciality-dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  gap: 12px;
+}
+
+.speciality-dropdown-item:hover {
+  background-color: #f8f9fa;
+}
+
+.speciality-dropdown-item .speciality-icon {
+  font-size: 1.5rem;
+  min-width: 24px;
+  text-align: center;
+}
+
+.speciality-dropdown-item .speciality-name {
+  flex: 1;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+.speciality-dropdown-item .speciality-arrow {
+  color: var(--primary-red);
+  font-size: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.speciality-dropdown-item:hover .speciality-arrow {
+  opacity: 1;
+  transform: translateX(5px);
+}
+
+.speciality-dropdown-divider {
+  height: 1px;
+  background-color: #eee;
+  margin: 5px 0;
+}
+
+.speciality-dropdown-item.view-all {
+  color: var(--primary-red);
+  font-weight: 600;
+}
+
+.speciality-dropdown-item.view-all:hover {
+  background-color: #fff5f5;
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 10px;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+  .nav-actions {
+    gap: 10px;
+  }
+
+  .nav-button {
+    padding: 6px 15px;
+    font-size: 0.9rem;
+  }
+}
