@@ -1,0 +1,83 @@
+.specialities-section {
+  padding: 40px 0;
+  background-color: #f8f9fa; /* Light background for this section */
+}
+
+.specialities-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid var(--primary-red);
+  padding-bottom: 15px;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.search-by-filter {
+  display: flex;
+  align-items: center;
+  color: var(--text-light);
+}
+
+.search-by-filter span {
+  margin-right: 10px;
+  font-size: 1rem;
+}
+
+.filter-dropdown {
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  background-color: var(--secondary-white);
+  font-size: 0.9rem;
+}
+
+.specialities-grid {
+  display: grid;
+  /* Adjust grid columns for responsiveness later */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  gap: 20px;
+}
+
+.speciality-item {
+  background-color: var(--secondary-white);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.speciality-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border-left: 4px solid var(--primary-red);
+}
+
+.speciality-icon {
+  font-size: 1.8rem; /* Icon size */
+  margin-right: 15px;
+  color: var(--primary-red); /* Icon color */
+  line-height: 1;
+}
+
+.speciality-name {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  flex-grow: 1; /* Makes name take available space */
+}
+
+.speciality-arrow {
+  font-size: 1.2rem;
+  color: var(--primary-red);
+  font-weight: bold;
+}

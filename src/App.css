@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+}
+
+/* General container styling to ensure content is not edge-to-edge */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Styling for FontAwesome icons if we use them later */
+.fa-icon {
+  margin-right: 8px;
+} 

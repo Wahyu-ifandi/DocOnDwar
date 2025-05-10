@@ -1,0 +1,49 @@
+.cookie-consent-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.85); /* Dark, slightly transparent background */
+  color: var(--secondary-white);
+  padding: 15px 0;
+  z-index: 1000; /* Ensure it's on top of other content */
+  font-size: 0.9rem;
+}
+
+.cookie-consent-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cookie-text {
+  margin: 0;
+  flex-grow: 1;
+  padding-right: 20px; /* Space before the button */
+}
+
+.learn-more-link {
+  color: var(--primary-red); /* Or a lighter color that stands out on dark bg */
+  text-decoration: underline;
+  margin-left: 8px;
+}
+
+.learn-more-link:hover {
+  color: #ff5c5c; /* Lighter red for hover */
+}
+
+.accept-button {
+  background-color: var(--primary-red);
+  color: var(--secondary-white);
+  border: none;
+  padding: 10px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+.accept-button:hover {
+  background-color: var(--primary-hover-red);
+} 

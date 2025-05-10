@@ -1,0 +1,172 @@
+.hero-section {
+  background-color: #f0f2f5; /* Light greyish background, can be an image too */
+  padding: 40px 0;
+  position: relative; /* For positioning floating action buttons */
+  /* A subtle pattern or gradient can be used for the background like in the image */
+  background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('https://www.medanta.org/images/home-new-banner-bg.jpg'); /* Placeholder background - replace with actual or pattern */
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-container {
+  display: flex;
+  align-items: flex-start; /* Align items to the top */
+  gap: 20px; /* Space between image/text content and awards */
+}
+
+.hero-content {
+  display: flex;
+  flex: 3; /* Takes more space */
+  gap: 30px; /* Space between doctor image and text content */
+}
+
+.hero-image-placeholder {
+  flex-shrink: 0; /* Prevent image from shrinking */
+  /* If using a background image on this div, set width, height, background-image, etc. */
+}
+
+.doctor-image {
+  max-width: 300px; /* Adjust as needed */
+  height: auto;
+  border-radius: 10px; /* Soften edges */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.hero-text-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center the text content */
+  flex-grow: 1;
+}
+
+.search-doctors-specialities {
+  display: flex;
+  margin-bottom: 30px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden; /* To make button part of the input group */
+  background-color: var(--secondary-white);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.search-input {
+  flex-grow: 1;
+  padding: 15px 20px;
+  font-size: 1.1rem;
+  border: none;
+  outline: none;
+}
+
+.search-button {
+  background-color: var(--primary-red);
+  color: var(--secondary-white);
+  border: none;
+  padding: 0 25px;
+  cursor: pointer;
+  font-size: 1.5rem; /* Icon size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: var(--primary-hover-red);
+}
+
+.quote-section {
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+  padding: 25px;
+  border-radius: 8px;
+  text-align: left;
+  position: relative;
+  font-style: italic;
+  color: var(--text-dark);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.quote-mark {
+  font-size: 3rem;
+  color: var(--primary-red);
+  line-height: 0.5;
+  margin-bottom: -10px; /* Adjust to pull text up */
+}
+.quote-mark-right {
+  text-align: right;
+  line-height: 0.1;
+  margin-top: -10px;
+}
+
+.quote-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 10px 0;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.quote-highlight {
+  font-weight: bold;
+  color: var(--text-dark); /* Or var(--primary-red) for emphasis */
+}
+
+.quote-author {
+  font-weight: bold;
+  margin-top: 15px;
+  font-size: 1.1rem;
+  text-align: right;
+  color: var(--text-dark);
+  font-style: normal;
+}
+
+.quote-author-title {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  text-align: right;
+  font-style: normal;
+}
+
+.awards-section {
+  flex: 1; /* Takes less space */
+  display: flex;
+  flex-direction: column; /* Stack multiple awards if any */
+  align-items: center; /* Center the award image */
+  padding-top: 20px; /* Align with search bar visually */
+}
+
+.award-image {
+  max-width: 180px; /* Adjust as needed */
+  height: auto;
+  /* Add box shadow or border if needed to match the style */
+}
+
+.floating-action-buttons {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fab {
+  background-color: var(--secondary-white);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--primary-red);
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fab:hover {
+  background-color: #f0f0f0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+} 
