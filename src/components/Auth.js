@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Auth.css';
 
-const Auth = () => {
+const Auth = ({ onAuthSuccess }) => {
   const [isLogin, setIsLogin] = useState(true);
   const [userType, setUserType] = useState('patient');
   const [formData, setFormData] = useState({
@@ -80,8 +80,17 @@ const Auth = () => {
       // Store token in localStorage
       localStorage.setItem('token', data.token);
       
-      // Redirect based on user type
-      window.location.href = userType === 'doctor' ? '/doctor-dashboard' : '/patient-dashboard';
+      // Fetch user data
+      const userResponse = await fetch('http://localhost:5000/api/auth/me', {
+        headers: {
+          'Authorization': `Bearer ${data.token}`
+        }
+      });
+      
+      const userData = await userResponse.json();
+      
+      // Call onAuthSuccess with user data
+      onAuthSuccess(userData);
     } catch (error) {
       setErrors({ submit: error.message });
     }

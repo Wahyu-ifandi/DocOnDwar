@@ -13,3 +13,6 @@
 .fa-icon {
   margin-right: 8px;
 } 
+body,html{
+  scrollbar-width: none;
+}

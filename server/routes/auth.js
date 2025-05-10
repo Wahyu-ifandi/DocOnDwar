@@ -114,4 +114,17 @@ router.post('/login', [
   }
 });
 
+// Add this route to your existing auth.js
+router.get('/me', async (req, res) => {
+  try {
+    const token = req.header('Authorization').replace('Bearer ', '');
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const user = await User.findById(decoded.user.id).select('-password');
+    res.json(user);
+  } catch (err) {
+    console.error(err.message);
+    res.status(401).json({ msg: 'Token is not valid' });
+  }
+});
+
 module.exports = router; 
