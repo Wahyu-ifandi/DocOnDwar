@@ -1,0 +1,231 @@
+.all-specialities-page {
+  min-height: 100vh;
+  background-color: #f5f7fa;
+  padding: 2rem;
+}
+
+.all-specialities-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.all-specialities-header h1 {
+  color: #2c3e50;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.all-specialities-header p {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+}
+
+.specialities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.custom-card {
+  background: white;
+  border-radius: 18px;
+  padding: 2.5rem 2rem 2rem 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 260px;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+  background-image: repeating-dot-grid();
+  background-image: url('data:image/svg+xml;utf8,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="1" fill="%23e6e6e6"/></svg>');
+  background-size: 28px 28px;
+}
+
+.custom-card:hover {
+  background: #e74c3c;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(231, 76, 60, 0.15);
+}
+
+.custom-icon {
+  font-size: 2.7rem;
+  margin-bottom: 1.2rem;
+  color: #e74c3c;
+  transition: color 0.3s;
+}
+
+.custom-card:hover .custom-icon {
+  color: #fff;
+}
+
+.speciality-card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 2.5rem;
+  min-height: 48px;
+  transition: color 0.3s;
+}
+
+.custom-card:hover .speciality-card-title {
+  color: #fff;
+}
+
+.speciality-card-action-row {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+  gap: 0.7rem;
+}
+
+.know-more-text {
+  font-size: 1.08rem;
+  color: #222;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.custom-card:hover .know-more-text {
+  color: #fff;
+}
+
+.know-more-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 50%;
+  background: #e74c3c;
+  color: #fff;
+  font-size: 1.3rem;
+  margin-left: 0.2rem;
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.1);
+  transition: background 0.3s, color 0.3s;
+}
+
+.custom-card:hover .know-more-btn {
+  background: #fff;
+  color: #e74c3c;
+}
+
+.arrow {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+/* Remove old tag/button styles */
+.speciality-card-expertise,
+.expertise-tag,
+.view-details-button,
+.speciality-card-description {
+  display: none !important;
+}
+
+/* Footer Styles */
+.specialities-footer {
+  background-color: #2c3e50;
+  color: white;
+  padding: 3rem 2rem 1rem;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section h4 {
+  color: #3498db;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.footer-section p {
+  color: #ecf0f1;
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-section ul li a {
+  color: #ecf0f1;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #3498db;
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.social-link {
+  color: #ecf0f1;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-link:hover {
+  color: #3498db;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #34495e;
+}
+
+.footer-bottom p {
+  color: #bdc3c7;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .all-specialities-page {
+    padding: 1rem;
+  }
+
+  .all-specialities-header h1 {
+    font-size: 2rem;
+  }
+
+  .specialities-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .custom-card {
+    padding: 2rem 1.2rem 1.5rem 1.2rem;
+  }
+}
