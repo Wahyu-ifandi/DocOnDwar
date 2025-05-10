@@ -1,97 +1,214 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // For a link back to home, if needed
 import './Auth.css';
 
 const Auth = () => {
   const [isLogin, setIsLogin] = useState(true);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState(''); // For signup
-  const [error, setError] = useState('');
+  const [userType, setUserType] = useState('patient');
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+    name: '',
+    phoneNumber: '',
+    specialization: '',
+    licenseNumber: '',
+    dateOfBirth: ''
+  });
+  const [errors, setErrors] = useState({});
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    
+    if (!formData.email) {
+      newErrors.email = 'Email is required';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Email is invalid';
+    }
+
+    if (!formData.password) {
+      newErrors.password = 'Password is required';
+    } else if (formData.password.length < 6) {
+      newErrors.password = 'Password must be at least 6 characters';
+    }
+
+    if (!isLogin) {
+      if (!formData.name) newErrors.name = 'Name is required';
+      if (!formData.phoneNumber) newErrors.phoneNumber = 'Phone number is required';
+      
+      if (userType === 'doctor') {
+        if (!formData.specialization) newErrors.specialization = 'Specialization is required';
+        if (!formData.licenseNumber) newErrors.licenseNumber = 'License number is required';
+      } else {
+        if (!formData.dateOfBirth) newErrors.dateOfBirth = 'Date of birth is required';
+      }
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(''); // Clear previous errors
+    
+    if (!validateForm()) return;
 
-    if (!email || !password) {
-      setError('Email and Password are required.');
-      return;
-    }
-    if (!isLogin && password !== confirmPassword) {
-      setError('Passwords do not match.');
-      return;
-    }
-    // Basic email validation
-    if (!/\S+@\S+\.\S+/.test(email)) {
-        setError('Please enter a valid email address.');
-        return;
-    }
+    try {
+      const endpoint = isLogin ? '/api/auth/login' : '/api/auth/signup';
+      const response = await fetch(`http://localhost:5000${endpoint}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          ...formData,
+          role: userType
+        })
+      });
 
-    // Frontend only - no backend call
-    console.log('Form submitted', { isLogin, email, password });
-    alert(isLogin ? 'Login (frontend only) successful!' : 'Signup (frontend only) successful!');
-    // Here you would typically call your backend API
-    // For now, we just log and show an alert
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.msg || 'Something went wrong');
+      }
+
+      // Store token in localStorage
+      localStorage.setItem('token', data.token);
+      
+      // Redirect based on user type
+      window.location.href = userType === 'doctor' ? '/doctor-dashboard' : '/patient-dashboard';
+    } catch (error) {
+      setErrors({ submit: error.message });
+    }
   };
 
   return (
     <div className="auth-container">
-      <div className="auth-form-wrapper">
+      <div className="auth-box">
         <h2>{isLogin ? 'Login' : 'Sign Up'}</h2>
-        <form onSubmit={handleSubmit} className="auth-form">
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input 
-              type="email" 
-              id="email" 
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required 
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <input 
-              type="password" 
-              id="password" 
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required 
-            />
-          </div>
+        
+        <div className="user-type-toggle">
+          <button
+            className={userType === 'patient' ? 'active' : ''}
+            onClick={() => setUserType('patient')}
+          >
+            Patient
+          </button>
+          <button
+            className={userType === 'doctor' ? 'active' : ''}
+            onClick={() => setUserType('doctor')}
+          >
+            Doctor
+          </button>
+        </div>
+
+        <form onSubmit={handleSubmit}>
           {!isLogin && (
             <div className="form-group">
-              <label htmlFor="confirmPassword">Confirm Password</label>
-              <input 
-                type="password" 
-                id="confirmPassword" 
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                required 
+              <input
+                type="text"
+                name="name"
+                placeholder="Full Name"
+                value={formData.name}
+                onChange={handleChange}
               />
+              {errors.name && <span className="error">{errors.name}</span>}
             </div>
           )}
-          {error && <p className="error-message">{error}</p>}
-          <button type="submit" className="auth-button">
-            {isLogin ? 'Login' : 'Create Account'}
+
+          <div className="form-group">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+            {errors.email && <span className="error">{errors.email}</span>}
+          </div>
+
+          <div className="form-group">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={formData.password}
+              onChange={handleChange}
+            />
+            {errors.password && <span className="error">{errors.password}</span>}
+          </div>
+
+          {!isLogin && (
+            <>
+              <div className="form-group">
+                <input
+                  type="tel"
+                  name="phoneNumber"
+                  placeholder="Phone Number"
+                  value={formData.phoneNumber}
+                  onChange={handleChange}
+                />
+                {errors.phoneNumber && <span className="error">{errors.phoneNumber}</span>}
+              </div>
+
+              {userType === 'doctor' ? (
+                <>
+                  <div className="form-group">
+                    <input
+                      type="text"
+                      name="specialization"
+                      placeholder="Specialization"
+                      value={formData.specialization}
+                      onChange={handleChange}
+                    />
+                    {errors.specialization && <span className="error">{errors.specialization}</span>}
+                  </div>
+                  <div className="form-group">
+                    <input
+                      type="text"
+                      name="licenseNumber"
+                      placeholder="License Number"
+                      value={formData.licenseNumber}
+                      onChange={handleChange}
+                    />
+                    {errors.licenseNumber && <span className="error">{errors.licenseNumber}</span>}
+                  </div>
+                </>
+              ) : (
+                <div className="form-group">
+                  <input
+                    type="date"
+                    name="dateOfBirth"
+                    value={formData.dateOfBirth}
+                    onChange={handleChange}
+                  />
+                  {errors.dateOfBirth && <span className="error">{errors.dateOfBirth}</span>}
+                </div>
+              )}
+            </>
+          )}
+
+          {errors.submit && <div className="error-message">{errors.submit}</div>}
+
+          <button type="submit" className="submit-btn">
+            {isLogin ? 'Login' : 'Sign Up'}
           </button>
         </form>
-        <div className="oauth-section">
-          <p>Or</p>
-          <button className="google-login-button">
-            {/* Placeholder for Google Icon */}
-            <span className="google-icon">G</span> 
-            {isLogin ? 'Login with Google' : 'Sign up with Google'}
+
+        <p className="toggle-auth">
+          {isLogin ? "Don't have an account? " : "Already have an account? "}
+          <button
+            className="toggle-btn"
+            onClick={() => setIsLogin(!isLogin)}
+          >
+            {isLogin ? 'Sign Up' : 'Login'}
           </button>
-        </div>
-        <div className="toggle-auth">
-          <button onClick={() => setIsLogin(!isLogin)} className="toggle-button">
-            {isLogin ? 'Need an account? Sign Up' : 'Already have an account? Login'}
-          </button>
-        </div>
-        <div className="back-to-home">
-            <Link to="/">&larr; Back to Home</Link>
-        </div>
+        </p>
       </div>
     </div>
   );
