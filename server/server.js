@@ -60,6 +60,10 @@ const connectDB = async () => {
 };
 
 connectDB();
+app.get('/', (req, res) => {
+  res.send('Welcome to DocOnDwaar backend!');
+});
+
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
