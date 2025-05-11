@@ -33,7 +33,7 @@ const InfoCardsSection = () => {
       id: 'c2',
       icon: cardIcons.elder,
       title: 'Elder Care Program',
-      description: "Medanta's Elder Care Programme gives your loved ones an empowering plan for their golden years.",
+      description: "DocOnDwaar's Elder Care Programme gives your loved ones an empowering plan for their golden years.",
     },
     {
       id: 'c3',

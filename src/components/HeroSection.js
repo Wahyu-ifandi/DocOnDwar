@@ -10,34 +10,50 @@ const HeroSection = () => {
       <div className="hero-container container">
         <div className="hero-content">
           <div className="hero-image-placeholder">
-            {/* This div will have a background image styled in CSS */}
-            {/* You can add an <img> tag here if preferred, or a component for Dr. Trehan's image */}
-            <img src="https://via.placeholder.com/400x500.png?text=Dr.+Naresh+Trehan" alt="Dr. Naresh Trehan" className="doctor-image" />
           </div>
           <div className="hero-text-content">
-            <div className="search-doctors-specialities">
-              <input 
-                type="text" 
-                placeholder="Search for Doctors and Specialities" 
-                className="search-input"
-              />
-              <button className="search-button">&#128269;</button> {/* Search Icon */}
-            </div>
-            <div className="quote-section">
-              <p className="quote-mark">&#8220;</p>
-              <p className="quote-text">
-                Medanta's patient-first approach allows teams of super specialist doctors to collaborate seamlessly and arrive at the best possible treatment, customised for each patient in line with our guiding philosophy <span className="quote-highlight">'Har Ek Jaan Anmol'</span>, meaning <span className="quote-highlight">'Every Life is Invaluable'</span>.
-              </p>
-              <p className="quote-mark quote-mark-right">&#8221;</p>
-              <p className="quote-author">Dr. Naresh Trehan</p>
-              <p className="quote-author-title">Chairman and Managing Director</p>
+            <div className="quote-section" style={{marginTop: '2.5rem'}}>
+              <div style={{
+                background: '#fff',
+                borderLeft: '6px solid #e74c3c',
+                padding: '1.5rem 2rem',
+                borderRadius: '12px',
+                boxShadow: '0 2px 12px rgba(231,76,60,0.08)',
+                maxWidth: '600px',
+                margin: '0 auto',
+                position: 'relative',
+              }}>
+                <span style={{
+                  position: 'absolute',
+                  left: '-2.2rem',
+                  top: '-1.2rem',
+                  fontSize: '3rem',
+                  color: '#e74c3c',
+                  fontWeight: 700,
+                  opacity: 0.18
+                }}>&#8220;</span>
+                <p style={{
+                  fontSize: '1.25rem',
+                  fontStyle: 'italic',
+                  color: '#333',
+                  margin: 0,
+                  lineHeight: 1.7
+                }}>
+                  DocOnDwaar's patient-first approach allows teams of super specialist doctors to collaborate seamlessly and arrive at the best possible treatment, customised for each patient in line with our guiding philosophy <span style={{color: '#e74c3c', fontWeight: 600}}>'Har Ek Jaan Anmol'</span>, meaning <span style={{color: '#e74c3c', fontWeight: 600}}>'Every Life is Invaluable'</span>.
+                </p>
+                <span style={{
+                  position: 'absolute',
+                  right: '-2.2rem',
+                  bottom: '-1.2rem',
+                  fontSize: '3rem',
+                  color: '#e74c3c',
+                  fontWeight: 700,
+                  opacity: 0.18
+                }}>&#8221;</span>
+              </div>
             </div>
           </div>
         </div>
-        <div className="awards-section">
-          {/* Placeholder for Newsweek award image - ideally an <img> tag */}
-          <img src="https://via.placeholder.com/150x200.png?text=World's+Best+Hospitals+2025" alt="World's Best Hospitals 2025 Newsweek" className="award-image"/>
-        </div>        
       </div>
       <div className="floating-action-buttons">
         <button className="fab">💡</button> {/* Placeholder Idea/Enquiry Icon */}

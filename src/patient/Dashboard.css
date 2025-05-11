@@ -3,7 +3,12 @@
 body {
     font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
   }
-  
+  body,html{
+    scrollbar-width: none;
+  }
+  ::-webkit-scrollbar{
+    display:none;
+  }
   .dashboard-container {
     display: flex;
     min-height: 100vh;
@@ -117,28 +122,27 @@ body {
   }
   
   .dashboard-cards {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 28px;
+    margin-top: 32px;
   }
   
   .dashboard-card {
-    background: linear-gradient(120deg, #fff 70%, #fbeee7 100%);
-    border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(231, 76, 60, 0.08);
-    padding: 2rem 2.2rem;
-    min-width: 270px;
-    flex: 1;
-    margin-bottom: 2rem;
-    transition: transform 0.18s, box-shadow 0.18s;
-    position: relative;
-    overflow: hidden;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(44,62,80,0.08);
+    padding: 28px 22px;
+    transition: box-shadow 0.2s, transform 0.2s;
+    border: 1.5px solid #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
   
   .dashboard-card:hover {
-    transform: translateY(-6px) scale(1.03);
-    box-shadow: 0 8px 32px rgba(231, 76, 60, 0.16);
+    box-shadow: 0 4px 24px rgba(44,62,80,0.18);
+    transform: translateY(-4px) scale(1.03);
   }
   
   .card-icon {
@@ -160,20 +164,66 @@ body {
   }
   
   .card-content {
+    margin-top: 18px;
     font-size: 1.1rem;
-    color: #333;
-    z-index: 1;
-    position: relative;
+    color: #555;
   }
   
-  .big-date {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #222;
+  .big-date, .big-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #E74C3C;
+    margin-bottom: 6px;
+    display: block;
   }
   
-  .big-number {
-    font-size: 2.2rem;
-    font-weight: bold;
-    color: #e67e22;
+  .profile-info {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .profile-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid #E74C3C;
+    object-fit: cover;
+  }
+  
+  .user-name-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .dashboard-header {
+    border-bottom: 1.5px solid #f0f0f0;
+    padding-bottom: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .dashboard-date {
+    color: #888;
+    font-size: 0.98rem;
+  }
+  
+  .free-doctor-card {
+    transition: box-shadow 0.2s, transform 0.2s;
+    box-shadow: 0 2px 12px rgba(0,188,212,0.08);
+    border-radius: 14px;
+    border: 2px solid #00bcd4;
+    background: linear-gradient(135deg, #e0f7fa 0%, #fff 100%);
+  }
+  
+  .free-doctor-card:hover {
+    box-shadow: 0 4px 24px rgba(0,188,212,0.18);
+    transform: translateY(-4px) scale(1.03);
+  }
+  
+  .big-doctor {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 8px;
   }

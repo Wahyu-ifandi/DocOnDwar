@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
-=======
-<<<<<<< HEAD
-import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
@@ -15,21 +11,10 @@ import CookieConsent from "./components/CookieConsent";
 import Footer from "./components/Footer";
 import Auth from "./components/Auth";
 import AllSpecialities from "./components/AllSpecialities";
-=======
-import React, { useState } from 'react';
->>>>>>> 3250cc07f617c2c5e14930751b83015bf06d2357
-import { Routes, Route, useNavigate } from 'react-router-dom';
-import './App.css';
-import Navbar from './components/Navbar';
-import HeroSection from './components/HeroSection';
-import ServicesQuickAccess from './components/ServicesQuickAccess';
-import SpecialitiesSection from './components/SpecialitiesSection';
-import InfoCardsSection from './components/InfoCardsSection';
-import CookieConsent from './components/CookieConsent';
-import Footer from './components/Footer';
-import Auth from './components/Auth';
 import Dashboard from './patient/Dashboard';
->>>>>>> e5b1222b10a12bf44eb753833beb52b361b321e6
+import SymptomChecker from './patient/SymptomChecker';
+import ContactUs from './components/ContactUs';
+import HealthLibrary from './components/HealthLibrary';
 
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem('token');
@@ -45,15 +30,41 @@ const ProtectedRoute = ({ children }) => {
 };
 
 // HomePage component to encapsulate the main page layout
-const HomePage = () => (
-  <>
-    <HeroSection />
-    <ServicesQuickAccess />
-    <SpecialitiesSection />
-    <InfoCardsSection />
-    <CookieConsent />
-  </>
-);
+const HomePage = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchTerm.trim()) {
+      navigate(`/speciality/${searchTerm}`);
+    }
+  };
+
+  return (
+    <>
+      <div className="main-search-container">
+        <form onSubmit={handleSearch} className="main-search-form">
+          <input
+            type="text"
+            placeholder="Search for a specialty or condition..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="main-search-input"
+          />
+          <button type="submit" className="main-search-button">
+            Search
+          </button>
+        </form>
+      </div>
+      <HeroSection />
+      <ServicesQuickAccess />
+      <SpecialitiesSection searchTerm={searchTerm} />
+      <InfoCardsSection />
+      <CookieConsent />
+    </>
+  );
+};
 
 function App() {
   const [user, setUser] = useState(null);
@@ -96,36 +107,41 @@ function App() {
   return (
     <div className="App">
       <Navbar user={user} onLogout={handleLogout} />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-<<<<<<< HEAD
-        <Route path="/auth" element={<Auth />} />
-        <Route path="/speciality/:speciality" element={<SpecialityDetails />} />
-        <Route path="/specialities" element={<AllSpecialities />} />
-=======
-        <Route path="/auth" element={<Auth onAuthSuccess={handleAuthSuccess} />} />
-<<<<<<< HEAD
-        <Route 
-          path="/patient-dashboard" 
-          element={
-            <ProtectedRoute>
-              <Dashboard user={user} onLogout={handleLogout} />
-            </ProtectedRoute>
-          } 
-        />
-=======
-       
+      <div className="main-content">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
 
->>>>>>> e5b1222b10a12bf44eb753833beb52b361b321e6
->>>>>>> 3250cc07f617c2c5e14930751b83015bf06d2357
-      </Routes>
+          <Route path="/speciality/:speciality" element={<SpecialityDetails />} />
+          <Route path="/specialities" element={<AllSpecialities />} />
+
+          <Route path="/auth" element={<Auth onAuthSuccess={handleAuthSuccess} />} />
+
+          <Route path="/health-library" element={<HealthLibrary />} />
+
+          <Route 
+            path="/patient-dashboard" 
+            element={
+              <ProtectedRoute>
+                <Dashboard user={user} onLogout={handleLogout} />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/symptom-checker" 
+            element={
+              <ProtectedRoute>
+                <SymptomChecker user={user} />
+              </ProtectedRoute>
+            } 
+          />
+          <Route path="/contact" element={<ContactUs />} />
+
+        </Routes>
+      </div>
       <Footer />
     </div>
   );
 }
 
-<<<<<<< HEAD
 export default App;
-=======
-export default App;
->>>>>>> 3250cc07f617c2c5e14930751b83015bf06d2357
+

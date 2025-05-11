@@ -3,14 +3,11 @@ import './Auth.css';
 
 const Auth = ({ onAuthSuccess }) => {
   const [isLogin, setIsLogin] = useState(true);
-  const [userType, setUserType] = useState('patient');
   const [formData, setFormData] = useState({
     email: '',
     password: '',
     name: '',
     phoneNumber: '',
-    specialization: '',
-    licenseNumber: '',
     dateOfBirth: ''
   });
   const [errors, setErrors] = useState({});
@@ -40,13 +37,7 @@ const Auth = ({ onAuthSuccess }) => {
     if (!isLogin) {
       if (!formData.name) newErrors.name = 'Name is required';
       if (!formData.phoneNumber) newErrors.phoneNumber = 'Phone number is required';
-      
-      if (userType === 'doctor') {
-        if (!formData.specialization) newErrors.specialization = 'Specialization is required';
-        if (!formData.licenseNumber) newErrors.licenseNumber = 'License number is required';
-      } else {
-        if (!formData.dateOfBirth) newErrors.dateOfBirth = 'Date of birth is required';
-      }
+      if (!formData.dateOfBirth) newErrors.dateOfBirth = 'Date of birth is required';
     }
 
     setErrors(newErrors);
@@ -67,7 +58,7 @@ const Auth = ({ onAuthSuccess }) => {
         },
         body: JSON.stringify({
           ...formData,
-          role: userType
+          role: 'patient'
         })
       });
 
@@ -101,21 +92,6 @@ const Auth = ({ onAuthSuccess }) => {
       <div className="auth-box">
         <h2>{isLogin ? 'Login' : 'Sign Up'}</h2>
         
-        <div className="user-type-toggle">
-          <button
-            className={userType === 'patient' ? 'active' : ''}
-            onClick={() => setUserType('patient')}
-          >
-            Patient
-          </button>
-          <button
-            className={userType === 'doctor' ? 'active' : ''}
-            onClick={() => setUserType('doctor')}
-          >
-            Doctor
-          </button>
-        </div>
-
         <form onSubmit={handleSubmit}>
           {!isLogin && (
             <div className="form-group">
@@ -164,41 +140,15 @@ const Auth = ({ onAuthSuccess }) => {
                 />
                 {errors.phoneNumber && <span className="error">{errors.phoneNumber}</span>}
               </div>
-
-              {userType === 'doctor' ? (
-                <>
-                  <div className="form-group">
-                    <input
-                      type="text"
-                      name="specialization"
-                      placeholder="Specialization"
-                      value={formData.specialization}
-                      onChange={handleChange}
-                    />
-                    {errors.specialization && <span className="error">{errors.specialization}</span>}
-                  </div>
-                  <div className="form-group">
-                    <input
-                      type="text"
-                      name="licenseNumber"
-                      placeholder="License Number"
-                      value={formData.licenseNumber}
-                      onChange={handleChange}
-                    />
-                    {errors.licenseNumber && <span className="error">{errors.licenseNumber}</span>}
-                  </div>
-                </>
-              ) : (
-                <div className="form-group">
-                  <input
-                    type="date"
-                    name="dateOfBirth"
-                    value={formData.dateOfBirth}
-                    onChange={handleChange}
-                  />
-                  {errors.dateOfBirth && <span className="error">{errors.dateOfBirth}</span>}
-                </div>
-              )}
+              <div className="form-group">
+                <input
+                  type="date"
+                  name="dateOfBirth"
+                  value={formData.dateOfBirth}
+                  onChange={handleChange}
+                />
+                {errors.dateOfBirth && <span className="error">{errors.dateOfBirth}</span>}
+              </div>
             </>
           )}
 

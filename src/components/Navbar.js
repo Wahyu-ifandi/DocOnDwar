@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom"; // Import Link for navigation
+import { Link, useNavigate, useLocation } from "react-router-dom"; // Import Link for navigation and useLocation
 import "./Navbar.css"; // We will create this CSS file next
 
 // Placeholder for logo - ideally an SVG or image
@@ -80,66 +80,131 @@ const SpecialityDropdown = ({ isOpen, onClose }) => {
   );
 };
 
-const Navbar = () => {
+const Navbar = ({ user, onLogout }) => {
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const location = useLocation(); // Get current route
+  const [loading, setLoading] = useState(false);
 
   const navLinks = [
-    { title: "Locations", dropdown: true },
+    { title: "Locations", dropdown: false, external: true, href: "https://findclinic.onrender.com/" },
     { title: "Speciality", dropdown: true },
-    { title: "Health Library", dropdown: true },
-    { title: "Services", dropdown: true },
-    { title: "International Patients", dropdown: true },
-    { title: "Careers", dropdown: false },
-    { title: "Contact Us", dropdown: true },
+    { title: "Health Library", dropdown: false, to: "/health-library" },
+    // { title: "Services", dropdown: true },
+    { title: "Contact Us", dropdown: false, to: "/contact" },
   ];
 
   const handleDropdownToggle = (title) => {
     setActiveDropdown(activeDropdown === title ? null : title);
   };
 
+  const handleFeedbackClick = () => {
+    setLoading(true);
+    setTimeout(() => {
+      window.open('https://ai-doctor-voicebot-9.onrender.com/', '_blank');
+      setLoading(false);
+    }, 1500);
+  };
+
   return (
-    <nav className="navbar">
-      <div className="navbar-container container">
-        <Logo />
-        <ul className="nav-menu">
-          {navLinks.map((link) => (
-            <li key={link.title} className="nav-item">
-              <a
-                href="#!"
-                className="nav-link"
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (link.dropdown) {
-                    handleDropdownToggle(link.title);
-                  }
-                }}
-              >
-                {link.title}
-                {link.dropdown && (
-                  <span className="dropdown-arrow"> &#9662;</span>
-                )}
-              </a>
-              {link.title === "Speciality" && (
-                <SpecialityDropdown
-                  isOpen={activeDropdown === "Speciality"}
-                  onClose={() => setActiveDropdown(null)}
-                />
-              )}
-            </li>
-          ))}
-        </ul>
-        <div className="nav-actions">
-          <Link to="/auth" className="nav-button login-button">
-            Login
-          </Link>
-          <button className="nav-button feedback-icon-button">💬</button>{" "}
-          {/* Placeholder for feedback icon */}
-          <button className="nav-button request-callback-button">
-            Request Call Back
-          </button>
+    <>
+      {loading && (
+        <div className="preloader-overlay">
+          <div className="spinner"></div>
         </div>
-      </div>
-    </nav>
+      )}
+      <nav className="navbar">
+        <div className="navbar-container container" style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+          <div style={{flex: '0 0 auto', display: 'flex', alignItems: 'center'}}>
+            <Logo />
+          </div>
+          <ul className="nav-menu" style={{flex: '1 1 auto', justifyContent: 'center', display: 'flex'}}>
+            {navLinks.map((link) => (
+              <li key={link.title} className="nav-item">
+                {link.external ? (
+                  <a href={link.href} className="nav-link" target="_blank" rel="noopener noreferrer">{link.title}</a>
+                ) : link.to ? (
+                  <Link to={link.to} className="nav-link">
+                    {link.title}
+                  </Link>
+                ) : (
+                  <a
+                    href="#!"
+                    className="nav-link"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (link.dropdown) {
+                        handleDropdownToggle(link.title);
+                      }
+                    }}
+                  >
+                    {link.title}
+                    {link.dropdown && (
+                      <span className="dropdown-arrow"> &#9662;</span>
+                    )}
+                  </a>
+                )}
+                {link.title === "Speciality" && (
+                  <SpecialityDropdown
+                    isOpen={activeDropdown === "Speciality"}
+                    onClose={() => setActiveDropdown(null)}
+                  />
+                )}
+              </li>
+            ))}
+          </ul>
+          <div className="nav-actions" style={{flex: '0 0 auto', display: 'flex', alignItems: 'center'}}>
+            {user ? (
+              <div className="user-avatar-dropdown" style={{position: 'relative'}}>
+                <button
+                  className="user-avatar-btn"
+                  style={{
+                    background: '#e74c3c',
+                    color: '#fff',
+                    border: 'none',
+                    borderRadius: '50%',
+                    width: 44,
+                    height: 44,
+                    fontWeight: 700,
+                    fontSize: '1.1rem',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                  title={user.name || 'Account'}
+                  onClick={() => setActiveDropdown(activeDropdown === 'user' ? null : 'user')}
+                >
+                  {user.name
+                    ? user.name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0,2)
+                    : 'U'}
+                </button>
+                {activeDropdown === 'user' && (
+                  <div className="user-dropdown-menu" style={{position: 'absolute', right: 0, top: 50, background: '#fff', border: '1px solid #eee', borderRadius: 8, boxShadow: '0 2px 8px rgba(44,62,80,0.10)', minWidth: 120, zIndex: 10}}>
+                    <button style={{background: 'none', border: 'none', color: '#e74c3c', padding: '10px 18px', width: '100%', textAlign: 'left', cursor: 'pointer', fontWeight: 600}} onClick={onLogout}>Logout</button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link to="/auth" className="nav-button login-button">
+                Login
+              </Link>
+            )}
+            <button
+              className="nav-button feedback-icon-button"
+              onClick={handleFeedbackClick}
+            >
+              💬
+            </button>
+            <button
+              className="nav-button request-callback-button"
+              onClick={() => window.open('https://video-call-app-1-k2sq.onrender.com/', '_blank')}
+            >
+              Request Video Callback
+            </button>
+          </div>
+        </div>
+      </nav>
+    </>
   );
 };
 

@@ -1,0 +1,102 @@
+.symptom-checker-container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(44,62,80,0.10);
+  padding: 36px 32px 32px 32px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.symptom-checker-container h1 {
+  font-size: 2.1rem;
+  color: #00bcd4;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.welcome-msg {
+  color: #444;
+  font-size: 1.08rem;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.features-list {
+  margin-bottom: 28px;
+  padding-left: 18px;
+  color: #333;
+  font-size: 1.05rem;
+}
+.features-list li {
+  margin-bottom: 8px;
+}
+
+.symptom-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  justify-content: center;
+}
+
+.symptom-input {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 6px;
+  border: 1.5px solid #00bcd4;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+.symptom-input:focus {
+  border: 2px solid #0097a7;
+}
+
+.symptom-search-btn {
+  background: #00bcd4;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 22px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.symptom-search-btn:hover {
+  background: #0097a7;
+}
+
+.results-section {
+  margin-top: 30px;
+  background: #f7fafd;
+  border-radius: 10px;
+  padding: 24px 18px;
+  box-shadow: 0 2px 8px rgba(0,188,212,0.07);
+}
+
+.results-section h2 {
+  color: #00bcd4;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.disease-list, .medicine-list {
+  margin-bottom: 18px;
+  padding-left: 18px;
+}
+.disease-item {
+  margin-bottom: 10px;
+  color: #333;
+}
+.when-to-see {
+  color: #e74c3c;
+  font-size: 0.98rem;
+  margin-left: 4px;
+}
+
+@media (max-width: 700px) {
+  .symptom-checker-container {
+    padding: 18px 6vw;
+  }
+} 

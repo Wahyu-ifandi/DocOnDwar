@@ -37,7 +37,7 @@ const Footer = () => {
         { text: 'News & Media', href: '#!' },
         { text: 'Research & Innovation', href: '#!' },
         { text: 'Contact Us', href: '#!' },
-        { text: 'Giving to Medanta', href: '#!' }, 
+        { text: 'Giving to DocOnDwaar', href: '#!' }, 
       ],
     },
     {
@@ -89,7 +89,7 @@ const Footer = () => {
 
       <div className="footer-bottom-bar">
         <div className="container bottom-bar-content">
-          <p>&copy; {new Date().getFullYear()} Medanta Inspired Healthcare. All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} DocOnDwaar Inspired Healthcare. All Rights Reserved.</p>
           {/* Add social media icons or other utility links here if needed */}
           <div className="footer-social-links">
             {/* Example: <a href="#!">FB</a> <a href="#!">TW</a> */}
