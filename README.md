@@ -1,53 +1,35 @@
-Here's a comprehensive README.md for our DocOnDwaar project:
+![WhatsApp Image 2025-05-11 at 23 03 21 (1)](https://github.com/user-attachments/assets/7dfd86c3-330e-4948-bf44-d9a1514b9d48)Here's a comprehensive README.md for our DocOnDwaar project:
 
 Live Project link:https://docondwaar-client.onrender.com/
 
 Demo video:https://drive.google.com/file/d/1gLp_KCHx9QhMp9e89fKT2N5fw6yZoGXX/view?usp=drive_link
 
 Screenshot:
-![Alt Text](![WhatsApp Image 2025-05-11 at 23 03 19](https://github.com/user-attachments/assets/c9bbbdd7-c152-4aef-ba14-fe887952b2b5)
+![Fig. 1 - Home Page](![WhatsApp Image 2025-05-11 at 23 03 19](https://github.com/user-attachments/assets/c9bbbdd7-c152-4aef-ba14-fe887952b2b5)
+)
+![Fig. 2 - Our Specialities](![WhatsApp Image 2025-05-11 at 23 03 21 (1)](https://github.com/user-attachments/assets/db29240c-9530-42c9-9f7d-f1840568b06d)
+)
+)
+![Fig. 3 - Patient Dashboard And Book Appointment](![WhatsApp Image 2025-05-11 at 23 03 20 (3)](https://github.com/user-attachments/assets/36f13bb8-74da-4bfe-abe5-9857320394fa)
+)
+)
+![Fig. 4 - AI Multilingual Doctor](![WhatsApp Image 2025-05-11 at 23 03 19 (2)](https://github.com/user-attachments/assets/8d75de1e-541e-4a20-94af-d8bcd175126b)
+)
+)
+![Fig. 5 -AI Multilingual Doctor Diagnosis](![WhatsApp Image 2025-05-11 at 23 03 19 (1)](https://github.com/user-attachments/assets/aa02ac54-6f02-4e49-b0c0-4b26ce5f43e4)
+)
+)
+![Fig. 6 - Payment Gateway](![WhatsApp Image 2025-05-11 at 23 03 20 (1)](https://github.com/user-attachments/assets/73ba3c77-7ada-4d59-8f33-b575f539c980)
+)
+)
+![Fig. 7 - Consulation with doctor](![WhatsApp Image 2025-05-11 at 23 05 19 (1)](https://github.com/user-attachments/assets/03e98fd7-b9ab-4d0a-85e5-c860d01f47dc)
+)
+)
+![Fig. 8 -Find Nearby Location](![WhatsApp Image 2025-05-11 at 23 49 44](https://github.com/user-attachments/assets/da73a0b5-6800-4dbe-93ad-0caa2b768368)
+)
+)
 )
 
-<figure>
-![WhatsApp Image 2025-05-11 at 23 03 19](https://github.com/user-attachments/assets/2ecdfc42-fd28-4281-bc03-9deb69f86f78)
-<figcaption>Fig. 1 - Home Page</figcaption>
-</figure>
-<figure>
-  <img src="[WhatsApp Image 2025-05-11 at 23 03 21 (1)](https://github.com/user-attachments/assets/696f72a0-4636-4aaa-bac5-ee1c57edca29)
-" alt="Specialty Filter Feature"/>
-  <figcaption>Fig. 2 - Our Specialities</figcaption>
-</figure>
-<figure>
-  <img src="![WhatsApp Image 2025-05-11 at 23 03 20 (3)](https://github.com/user-attachments/assets/a8b6b060-7910-42fd-a433-f830ddd66b22)
-
-" alt="Specialty Filter Feature"/>
-  <figcaption>Fig. 3 - Patient Dashboard And Book Appointment</figcaption>
-</figure>
-<figure>
-  <img src="![WhatsApp Image 2025-05-11 at 23 03 19 (2)](https://github.com/user-attachments/assets/fedd1409-ef55-4da9-9113-e07790755622)
-" alt="Specialty Filter Feature"/>
-  <figcaption>Fig. 4 - AI Multilingual Doctor </figcaption>
-</figure>
-<figure>
-  <img src="![WhatsApp Image 2025-05-11 at 23 03 19 (1)](https://github.com/user-attachments/assets/546969a0-a452-4383-943a-dfd947e98bb4)
-" alt="Specialty Filter Feature"/>
-  <figcaption>Fig. 5 -AI Multilingual Doctor Diagnosis</figcaption>
-</figure>
-<figure>
-  <img src="![WhatsApp Image 2025-05-11 at 23 03 20 (1)](https://github.com/user-attachments/assets/c6721084-dbff-4e60-9b62-2a85df69602c)
-" alt="Specialty Filter Feature"/>
-  <figcaption>Fig. 6 - Payment Gateway</figcaption>
-</figure>
-<figure>
-  <img src="![WhatsApp Image 2025-05-11 at 23 05 19 (1)](https://github.com/user-attachments/assets/6078b10c-e769-4b2d-b8f9-906670929789)
-" alt="Specialty Filter Feature"/>
-  <figcaption>Fig. 7 - Consulation with doctor</figcaption>
-</figure>
-<figure>
-  <img src="![WhatsApp Image 2025-05-11 at 23 49 44](https://github.com/user-attachments/assets/62a5f462-8cde-4887-9a20-17fa14400b9f)
-" alt="Specialty Filter Feature"/>
-  <figcaption>Fig. 8 -Find Nearby Location</figcaption>
-</figure>
 ```markdown
 # DocOnDwaar - Medical Healthcare Platform
 
