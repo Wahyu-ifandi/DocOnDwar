@@ -1,7 +1,7 @@
 Here's a comprehensive README.md for our DocOnDwaar project:
 
 Live Project link:https://docondwaar-client.onrender.com/
-Demo video:https://drive.google.com/file/d/1CUkDuKasWquUCvyL9rfJ6Q1ndpKA4Y7Q/view?usp=sharing
+Demo video:https://drive.google.com/file/d/1gLp_KCHx9QhMp9e89fKT2N5fw6yZoGXX/view?usp=drive_link
 
 Screenshot:
 <figure>
@@ -63,13 +63,16 @@ A React-based healthcare platform inspired by Medanta's UI/UX, featuring a moder
 
 ## Live Demo
 
-[View Live Demo](https://docondwaar.example.com) <!-- Add your deployment URL -->
+[View Live Demo](https://docondwaar-client.onrender.com/) <!-- Add your deployment URL -->
 
 ## Screenshots
 
 | Homepage | Patient Dashboard | Specialities |
 |----------|------------------|--------------|
-| ![Homepage](screenshots/home.png) | ![Dashboard](screenshots/dashboard.png) | ![Specialities](screenshots/specialities.png) |
+| ![Homepage](![WhatsApp Image 2025-05-11 at 23 03 19](https://github.com/user-attachments/assets/6e074455-e4c3-4e6f-94cb-b84d7949800b)
+) | ![Dashboard](![WhatsApp Image 2025-05-11 at 23 03 20 (3)](https://github.com/user-attachments/assets/4eb33033-afb4-4438-b68d-7b05e0ac3d0b)
+) | ![Specialities](![WhatsApp Image 2025-05-11 at 23 03 21 (1)](https://github.com/user-attachments/assets/81a23fd6-9caa-41ec-b8c9-1ca6f68682bc)
+) |
 
 ## Technology Stack
 
