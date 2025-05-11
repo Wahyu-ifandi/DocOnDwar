@@ -23,12 +23,7 @@ const Card = ({ icon, title, description, linkText, isVisible }) => {
 
 const InfoCardsSection = () => {
   const cardsData = useMemo(() => [
-    {
-      id: 'c1',
-      icon: cardIcons.shagun,
-      title: 'Sehat Ka Shagun | Happy Diwali',
-      description: "A festival is truly joyous when health illuminates every celebration. This Diwali, let's go beyond the traditional exchange...",
-    },
+   
     {
       id: 'c2',
       icon: cardIcons.elder,

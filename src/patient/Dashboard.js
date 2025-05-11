@@ -31,6 +31,7 @@ export default function Dashboard({ user, onLogout }) {
   const [selectedDoctor, setSelectedDoctor] = useState(null);
   const [selectedSlot, setSelectedSlot] = useState(null);
   const [slotAllotted, setSlotAllotted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const mockDoctors = [
     { name: 'Dr. A. Sharma', disease: 'Diabetes', slots: ['10:00 AM', '11:00 AM'] },
@@ -42,9 +43,14 @@ export default function Dashboard({ user, onLogout }) {
   const safeUser = user && user.name ? user : { name: "John Doe" };
   const navigate = useNavigate();
   const handleFreeDoctor = () => {
-    setShowFreeDoctor(true);
-    setShowFindHospitals(false);
-    setShowBookAppointment(false);
+    setLoading(true);
+    setTimeout(() => {
+      window.open('https://ai-doctor-voicebot-9.onrender.com/', '_blank');
+      setLoading(false);
+      setShowFreeDoctor(true);
+      setShowFindHospitals(false);
+      setShowBookAppointment(false);
+    }, 1500);
   };
   const handleDashboard = () => {
     setShowFreeDoctor(false);
@@ -79,6 +85,12 @@ export default function Dashboard({ user, onLogout }) {
 
   return (
     <div className="dashboard-container">
+      {loading && (
+        <div className="preloader-overlay" style={{position: 'fixed', top:0, left:0, right:0, bottom:0, background:'rgba(255,255,255,0.7)', zIndex:9999, display:'flex', alignItems:'center', justifyContent:'center'}}>
+          <div className="spinner" style={{width:60, height:60, border:'6px solid #f3f3f3', borderTop:'6px solid #e74c3c', borderRadius:'50%', animation:'spin 1s linear infinite'}}></div>
+          <style>{`@keyframes spin {0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}`}</style>
+        </div>
+      )}
       <Sidebar onLogout={onLogout} onSelect={(val) => {
         if (val === 'free-doctor') handleFreeDoctor();
         if (val === 'dashboard') handleDashboard();

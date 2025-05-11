@@ -1,8 +1,6 @@
 import React from 'react';
-import './HeroSection.css'; // We will create this CSS file next
+import './HeroSection.css'; 
 
-// Placeholder for hero image - ideally a background image in CSS
-// Placeholder for Newsweek award image
 
 const HeroSection = () => {
   return (
