@@ -6,11 +6,11 @@ Demo video:https://drive.google.com/file/d/1gLp_KCHx9QhMp9e89fKT2N5fw6yZoGXX/vie
 
 Screenshot:
 <figure>
- ![WhatsApp Image 2025-05-11 at 23 03 19](https://github.com/user-attachments/assets/d5a8df48-abc5-48bf-8865-8d840dfb9be0)
-  <figcaption>Fig. 1 - Home Page</figcaption>
+![WhatsApp Image 2025-05-11 at 23 03 19](https://github.com/user-attachments/assets/2ecdfc42-fd28-4281-bc03-9deb69f86f78)
+<figcaption>Fig. 1 - Home Page</figcaption>
 </figure>
 <figure>
-  <img src="![WhatsApp Image 2025-05-11 at 23 03 21 (1)](https://github.com/user-attachments/assets/696f72a0-4636-4aaa-bac5-ee1c57edca29)
+  <img src="[WhatsApp Image 2025-05-11 at 23 03 21 (1)](https://github.com/user-attachments/assets/696f72a0-4636-4aaa-bac5-ee1c57edca29)
 " alt="Specialty Filter Feature"/>
   <figcaption>Fig. 2 - Our Specialities</figcaption>
 </figure>
