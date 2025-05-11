@@ -75,7 +75,7 @@ function App() {
     const token = localStorage.getItem('token');
     if (token) {
       // Fetch user data
-      fetch('http://localhost:5000/api/auth/me', {
+      fetch('https://docondwaar-server.onrender.com/api/auth/me', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
