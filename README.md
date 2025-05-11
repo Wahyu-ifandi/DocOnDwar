@@ -1,4 +1,4 @@
-![WhatsApp Image 2025-05-11 at 23 03 19](https://github.com/user-attachments/assets/4aed1152-73e5-4497-94c6-ef65f2235d36)Here's a comprehensive README.md for our DocOnDwaar project:
+Here's a comprehensive README.md for our DocOnDwaar project:
 
 Live Project link:https://docondwaar-client.onrender.com/
 
@@ -6,7 +6,38 @@ Screenshot:
 <figure>
   <img src="![WhatsApp Image 2025-05-11 at 23 03 19](https://github.com/user-attachments/assets/cf35edca-75b2-4742-9a7f-faf03449786f)
 " alt="Specialty Filter Feature"/>
-  <figcaption>Fig. 1 - Specialty filtering interface</figcaption>
+  <figcaption>Fig. 1 - Home Page</figcaption>
+</figure>
+<figure>
+  <img src="![WhatsApp Image 2025-05-11 at 23 03 21 (1)](https://github.com/user-attachments/assets/696f72a0-4636-4aaa-bac5-ee1c57edca29)
+" alt="Specialty Filter Feature"/>
+  <figcaption>Fig. 2 - Our Specialities</figcaption>
+</figure>
+<figure>
+  <img src="![WhatsApp Image 2025-05-11 at 23 03 20 (3)](https://github.com/user-attachments/assets/a8b6b060-7910-42fd-a433-f830ddd66b22)
+
+" alt="Specialty Filter Feature"/>
+  <figcaption>Fig. 3 - Patient Dashboard And Book Appointment</figcaption>
+</figure>
+<figure>
+  <img src="![WhatsApp Image 2025-05-11 at 23 03 19 (2)](https://github.com/user-attachments/assets/fedd1409-ef55-4da9-9113-e07790755622)
+" alt="Specialty Filter Feature"/>
+  <figcaption>Fig. 4 - AI Multilingual Doctor </figcaption>
+</figure>
+<figure>
+  <img src="![WhatsApp Image 2025-05-11 at 23 03 19 (1)](https://github.com/user-attachments/assets/546969a0-a452-4383-943a-dfd947e98bb4)
+" alt="Specialty Filter Feature"/>
+  <figcaption>Fig. 5 -AI Multilingual Doctor Diagnosis</figcaption>
+</figure>
+<figure>
+  <img src="![WhatsApp Image 2025-05-11 at 23 03 20 (1)](https://github.com/user-attachments/assets/c6721084-dbff-4e60-9b62-2a85df69602c)
+" alt="Specialty Filter Feature"/>
+  <figcaption>Fig. 6 - Payment Gateway</figcaption>
+</figure>
+<figure>
+  <img src="![WhatsApp Image 2025-05-11 at 23 05 19 (1)](https://github.com/user-attachments/assets/6078b10c-e769-4b2d-b8f9-906670929789)
+" alt="Specialty Filter Feature"/>
+  <figcaption>Fig. 7 - Consulation with doctor</figcaption>
 </figure>
 ```markdown
 # DocOnDwaar - Medical Healthcare Platform
