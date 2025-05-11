@@ -6,8 +6,7 @@ Demo video:https://drive.google.com/file/d/1gLp_KCHx9QhMp9e89fKT2N5fw6yZoGXX/vie
 
 Screenshot:
 <figure>
-  <img src="![WhatsApp Image 2025-05-11 at 23 03 19](https://github.com/user-attachments/assets/cf35edca-75b2-4742-9a7f-faf03449786f)
-" alt="Specialty Filter Feature"/>
+ ![WhatsApp Image 2025-05-11 at 23 03 19](https://github.com/user-attachments/assets/d5a8df48-abc5-48bf-8865-8d840dfb9be0)
   <figcaption>Fig. 1 - Home Page</figcaption>
 </figure>
 <figure>
