@@ -1,6 +1,23 @@
 import React, { useState } from 'react';
 import './Auth.css';
 
+const BACKEND_URLS = [
+  'https://docondwaar-server.onrender.com',
+  'http://localhost:5000'
+];
+
+async function fetchWithFallback(endpoint, options) {
+  for (let baseUrl of BACKEND_URLS) {
+    try {
+      const response = await fetch(`${baseUrl}${endpoint}`, options);
+      if (response.ok) return response;
+    } catch (err) {
+      // Try next URL
+    }
+  }
+  throw new Error('All backend servers are unreachable');
+}
+
 const Auth = ({ onAuthSuccess }) => {
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
@@ -51,7 +68,7 @@ const Auth = ({ onAuthSuccess }) => {
 
     try {
       const endpoint = isLogin ? '/api/auth/login' : '/api/auth/signup';
-      const response = await fetch(`http://localhost:5000${endpoint}`, {
+      const response = await fetchWithFallback(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -72,7 +89,7 @@ const Auth = ({ onAuthSuccess }) => {
       localStorage.setItem('token', data.token);
       
       // Fetch user data
-      const userResponse = await fetch('http://localhost:5000/api/auth/me', {
+      const userResponse = await fetchWithFallback('/api/auth/me', {
         headers: {
           'Authorization': `Bearer ${data.token}`
         }

@@ -34,7 +34,7 @@ console.log('.env file path:', envPath);
 
 // CORS configuration
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:5001'], // Allow both React dev and your custom port
+  origin: ['http://localhost:3000', 'http://localhost:5001', 'https://docondwaar-client.onrender.com'],
   credentials: true
 }));
 
